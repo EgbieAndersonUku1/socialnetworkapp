@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% from "_relationship_button_helper.html" import rel_button, rel_js %}
+{% block title %}{{ user.username }} - Profile {% endblock %}
+
+{% include "navbar.html" %}
+
+{% block header %}<link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+
+  <div class="col-md-3">
+
+
+    <a href="#"><img class="img-thumbnail" src="{{ url_for('static', filename=user.profile_image_src(image_size)) }}" width="200" height="200" alt="{{ user.username }}"></a>
+
+    <h3 class="profile-fullname">{{ user.first_name }} {{ user.last_name }} </h3>
+    <h3 class="profile-username"><a href="{{ url_for('profile_app.profile', username=user.username) }}" />
+
+      {% if user.username %}
+      @{{ user.username }}
+      {% else %}
+      Profile image
+      {% endif %}
+
+      </a></h3>
+
+  </div> <!-- col-md-3 -->
+
+  <div class="col-md-9">
+
+    <div id="friends-toolbar" class="row">
+
+      <div class="btn-toolbar pull-right" role="toolbar" aria-label="friends-toolbar">
+        <div class="btn-group" role="group" aria-label="friends-toolbar-buttons">
+
+        </div>
+      </div>
+
+
+    </div> <!-- friends-toolbar -->
+
+
+      <div class="col-md-12"> <!-- == Friend list == -->
+
+        <div class="row">
+                <h1 class="pending-requests-friends">No Friend Pending requests</h1>
+
+            {% if not pending.items %}
+                <div class="no-pending-requests">
+                     You have no pending friend requests
+                </div>
+            {% else%}
+          {% for friend in pending.items %}
+
+            <div class="col-md-5 friend-grid-user">
+              <div class="friend-grid-user-image">
+                <a class="img-thumbnail" href="{{ url_for('profile_app.profile', username=friend.from_user.username) }}">
+                  <img src="{{ url_for('static', filename=friend.from_user.profile_image_src(image_size)) }}" width="100" height="100" alt="{{ friend.from_user.username }}">
+                </a>
+
+              </div>
+              <div class="friend-grid-user-data">
+                <h4 class="profile-fullname">{{ friend.from_user.first_name }} {{ friend.from_user.last_name }} </h5>
+                <h5 class="profile-username"><a href="{{ url_for('profile_app.profile', username=friend.to_user.username) }}">@{{ friend.from_user.username }}</a></h4>
+              </div>
+              <div class="friend-grid-user-friends-button">
+                  {% if relationship_type == None %}
+                  <a href="{{ url_for('relationship_app.add_friend', username=friend.from_user.username) }}" role="button" class="relationship-add-friend btn btn-success">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Accept Friendship
+                  </a>
+
+                  <a href="{{ url_for('relationship_app.remove_friend', username=friend.from_user.username) }}" role="button" class="btn btn-danger">
+                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Deny Friendship
+                  </a>
+                  {% endif %}
+
+              </div>
+                </br>
+            </div> <!-- col-md-3 -->
+
+          {% endfor %}
+        {% endif %}
+        </div> <!-- row -->
+
+      </div>
+
+       <div class="profile-friends-pagination col-md-12"> <!-- == Pagination == -->
+
+        <div class="row">
+
+          <div class="col-md-6 pull-left">
+          {% if pending.has_prev %}
+            <a role="button" class="btn btn-primary" href="{{ url_for('relationship_app.get_all_friend_requests', page=pending.prev_num) }}">< Previous</a>
+          {% endif %}
+          </div> <!-- col-md-6 -->
+
+          <div class="col-md-6 pull-right">
+          {% if pending.has_next %}
+            <a class="btn btn-primary" href="{{ url_for('relationship_app.get_all_friend_requests', page=pending.next_num) }}">Next ></a>
+          {% endif %}
+          </div> <!-- col-md-6 -->
+
+        </div> <!-- row -->
+
+      </div>
+
+    </div> <!-- row -->
+
+
+
+</div>
+{% endblock %}
+
+
+{% block end_body_js %}
+{{ rel_js() }}
+
+{% endblock %}

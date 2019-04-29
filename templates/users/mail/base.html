@@ -1,0 +1,15 @@
+<HTML>
+    <BODY>
+        {% block body %} {% endblock %}
+
+        {% if user.change_configuration.confirmation_code %}
+
+            Confirmation code link
+
+            {{ config.HOSTNAME }}/confirm/{{ user.username }}/{{ user.change_configuration.confirmation_code }}
+
+        {% endif %}
+
+        The social network team
+    </BODY>
+</HTML>

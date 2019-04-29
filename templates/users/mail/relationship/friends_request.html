@@ -1,0 +1,11 @@
+
+
+{% block body %}
+<p>Good news! {{ from_user.first_name.title() }} {{ from_user.last_name.title() }} wants to be your friend.</p>
+
+<p>To confirm this friendship, just visit {{ from_user.first_name }}'s profile:<br />
+{{ config.HOSTNAME }}/{{ from_user.username }}
+
+    or copy the link into your tab and hit enter
+</p>
+{% endblock %}

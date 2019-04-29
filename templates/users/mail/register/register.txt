@@ -1,0 +1,10 @@
+{% extends "users/mail/base.html" %}
+
+
+{% block body %}
+Hi {{ user.first_name }} and thanks for registering in social network!
+
+To confirm your registration, please click on this link below:
+{% endblock %}
+
+The social network team

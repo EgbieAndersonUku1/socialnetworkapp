@@ -1,0 +1,13 @@
+{% extends "users/mail/base.html" %}
+
+{% block body %}
+
+    Hi {{ user.username.title() }}
+
+    <p>We have received a request to change your email</p>
+
+    <p>
+        To confirm this change, please click on this link: <br/>
+
+    </p>
+{% endblock %}
