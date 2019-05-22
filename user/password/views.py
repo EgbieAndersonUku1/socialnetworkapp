@@ -89,7 +89,7 @@ def change_password():
 
             _email_user_about_password_changed(user)
             return _logout_user()
-        error = constants.ERRORS['"INCORRECT_CREDENTIALS"']
+        error = constants.INCORRECT_CREDENTIALS
     return render_template("users/password/new_password.html", form=form, error=error)
 
 

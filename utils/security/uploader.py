@@ -14,5 +14,5 @@ def upload_image_securely_to_server(form, save_to_path):
 
     img_path = join(save_to_path, filename)
     form.image.data.save(img_path)
-
+   
     return image_ts, img_path

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_relationship_button_helper.html" import rel_button, rel_js %}
-{% block title %}{{ user.username }} - Profile {% endblock %}
+{% block title %}{{ user.username }} - Profile page {% endblock %}
 
 {% include "navbar.html" %}
 
@@ -15,8 +15,8 @@
 
     <a href="{{ url_for('profile_app.profile', username=user.username) }}"><img class="img-thumbnail" src="{{ url_for('static', filename=user.profile_image_src(image_size)) }}" width="200" height="200" alt="{{ user.username }}"></a>
 
-    <h3 class="profile-fullname">{{ user.first_name }} {{ user.last_name }} </h3>
-    <h3 class="profile-username"><a href="{{ url_for('profile_app.profile', username=user.username) }}"></a></h3>
+    <h2 class="profile-fullname">{{ user.first_name }} {{ user.last_name }} </h2>
+    <h2 class="profile-username"><a href="{{ url_for('profile_app.profile', username=user.username) }}"></a></h2>
 
       {% if user.username %}
       @{{ user.username }}
@@ -45,7 +45,7 @@
       {% if not friends_page %}
 
       <div class="col-md-9">
-
+        <div class="profile_heading">{{ user.username[:10].title() }}'s profile page </div>
         {% if session.username and (relationship_type == "FRIENDS_APPROVED" or display_message_box ) %}
 
             <!-- pposttext input -->
@@ -70,8 +70,9 @@
               </form>
               </div>
           {% else %}
-              <div id="cannot-display-message">
-                 Unfortunately you cannot see or post message because you and {{ user.username.title() }} are not friends.
+              <div id="cannot_display_message">
+                 Unfortunately you cannot see or post message on {{ user.username.title() }}'s profile page because you are not friends.
+                 <br>
                  <br>
                  To see their message or create post consider adding them as a friend.
               </div>
@@ -89,7 +90,7 @@
         <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <a href="{{ url_for('profile_app.profile_friends', username=user.username) }}">Friends</a>
         <span class="badge">{{ friends_total }}</span></h4>
-
+        <br>
         {% for friend in friends %}
         <div class="media">
           <div class="media-left">
@@ -115,15 +116,15 @@
 
 
             {% if not friends.items %}
-                <div class="no-pending-requests">
-                    <h1 class="pending-requests-friends">No friends found</h1>
+                <h6>
                     You do not yet have friends. Considering adding friends to your network.
-                </div>
-            {% else%}
-                  <div class="no-pending-requests">
-                      <h1 class="pending-requests-friends"> My Friends ({{ friends_total }})</h1>
-
-                </div>
+                </h6>
+            {% else %}
+                  
+                   <h3>My Friends ({{ friends_total }})</h3>
+                   <br>
+                   <br>
+               
 
                   {% for friend in friends.items %}
 

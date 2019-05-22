@@ -1,3 +1,52 @@
+.profile_heading {
+ font-size: 60px;
+ font-family: fantasy;
+ color: darkblue
+
+}
+
+.alert alert-danger,  {
+    width: 100%
+}
+
+.heading-login-page   {
+    font-size: 100px;
+    font-family: fantasy;
+    color: cadetblue;
+}
+
+
+#current_password, #email, #password, #username, #last_name, #first_name, #confirm, #bio {
+    height: 43px;
+    width: 100%;
+    font-family: Arial sans-serif;
+    font-size: 22px;
+}
+
+#login_button,  #register_button, #reset_password, #new_password, #edit_save_button  {
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.socialnetworkhomepage {
+
+    font-family: fantasy;
+    color: cadetblue;
+    font-stretch: semi-condensed;
+    font-size: 100px;
+    text-align: center;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+
+
 #friends-toolbar {
     height: 60px;
     margin-right: 5px;
@@ -8,8 +57,6 @@
     margin-bottom: 4px;
 
 }
-
-
 .profile-username {
 
     margin-top: 2px;
@@ -42,4 +89,43 @@ h1 {
 
 .media-footer-likes {
     margin-top: 5px;
+}
+
+
+.h3, h3 {
+   font-size: 40px;
+   font-family: fantasy;
+   color: cadetblue;
+}
+
+.}
+
+
+#forgotten_password_heading {
+   font-size: 50px;
+   font-family: fantasy;
+   color: cadetblue;
+}
+
+}
+
+#pending_requests, #no_friends {
+   font-size: 30px;
+   font-family: fantasy;
+   color: #675151;
+}
+
+#cannot_display_message, #no_pending_requests {
+    font-size: 25px;
+    font-family: serif;
+    color: #333;
+}
+
+.h6, h6 {
+  
+    font-size: 22px;
+    font-family: fantasy;
+    color: #5d5454;
+
+
 }

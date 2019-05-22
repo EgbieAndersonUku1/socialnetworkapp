@@ -7,6 +7,7 @@ from feeds import errors
 
 
 class FeedPostForm(Form):
+    """The feed post form allows the user to post images and post to the feed home page"""
 
     images = FileField("Select images",
                        render_kw={"multiple": True},

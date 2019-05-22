@@ -14,9 +14,14 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
       <div class="container">
-        <img src="{{ url_for('static', filename='assets/meetup.jpg') }}"  width="1050"/>
+
+        <div class="socialnetworkhomepage">
+            <h3>Welcome to the social network</h3>
+          </div>
+
+        <img src="{{ url_for('static', filename='assets/meetup.jpg') }}"  width="1140"/>
           <br>
-        <h3>Expand your social network by meeting people here in this social network</h3>
+        <h2>Expand your social network by meeting people here in this social network</h2>
 
           <div class="home-page-body-text">
                <p>We are variety of people from all different diversities and backgrounds. Here you find a variety of people
@@ -28,7 +33,11 @@
           <br>
           </div>
 
-        <p><a class="btn btn-primary btn-lg" href="{{ url_for('login_app.login') }}" role="button">Login</a> or <a class="btn btn-primary btn-lg" href="{{ url_for('registration_app.register') }}" role="button">Register</a></p>
+        <p>
+           <a id="login_button" class="btn btn-primary btn-lg" href="{{ url_for('login_app.login') }}" role="button">Login</a> 
+           <br>
+           <br>
+           <a id="register_button" class="btn btn-primary btn-lg" href="{{ url_for('registration_app.register') }}" role="button">Register</a></p>
       </div>
 
 

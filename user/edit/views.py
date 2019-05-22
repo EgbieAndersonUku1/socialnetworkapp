@@ -32,7 +32,7 @@ def edit():
     image_time_stamp = None
 
     user = User.objects.filter(username=Session.get_session_by_name("username")).first()
-
+   
     if not user:
         abort(404)
 
@@ -40,7 +40,7 @@ def edit():
 
     if form.validate_on_submit():
 
-        if form.image:
+        if form.image.data:
 
             try:
                 image_time_stamp, img_path = upload_image_securely_to_server(form, save_to_path=join(UPLOADED_FOLDER, 'users'))
@@ -55,10 +55,10 @@ def edit():
         if _has_user_changed_their_email_address(user, form):
             message = constants.EMAIL_CONFIRMATION_MSG
             email_changed = _if_email_not_exists_update_session(errors, form, user)
-
+        
         if not errors:
             form.populate_obj(user)
-
+            
             if image_time_stamp:
                 user.profile_image = image_time_stamp
             if not message:

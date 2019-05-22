@@ -23,6 +23,7 @@ _HEIGHT, _WIDTH = 200, 200
 @feed_app.route("/message/add", methods=["GET", "POST"])
 @login_required
 def add_message():
+    """The add message function allows the user to add message to the application"""
 
     form = FeedPostForm()
 
@@ -46,7 +47,14 @@ def add_message():
 @feed_app.route("/message/edit/<message_id>", methods=["GET", "POST"])
 @login_required
 def edit_message(message_id):
+    """edit_message(str) -> render tmp object
 
+       The function allows the user edit their message.
+
+       :param
+          message_id: The message id allows the user to edit the message
+                      associated with that id.
+    """
 
     message_obj = Message.objects.filter(id=message_id).first()
 

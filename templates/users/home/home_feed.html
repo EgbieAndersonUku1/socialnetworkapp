@@ -2,7 +2,7 @@
 {% from "_relationship_button_helper.html" import rel_button, rel_js %}
 {% include "navbar.html" %}
 
-{% block title %}Home - Flaskbook{% endblock %}
+{% block title %}Home - SocialNetwork {% endblock %}
 
 {% block header %}<link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">{% endblock %}
 
@@ -20,7 +20,8 @@
     <div class="row">
 
       <div class="col-md-9"> <!-- == Posts == -->
-
+	
+	<h3> Home Page Feed </h3>
         <!-- pposttext input -->
         <div class="row feed-message">
           {% if error %}

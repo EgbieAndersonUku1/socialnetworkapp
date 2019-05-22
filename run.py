@@ -10,10 +10,11 @@ from app import create_app
 
 app = create_app()
 
-manager = Manager(app)
+#manager = Manager(app)
 
-manager.add_command("runserver", Server(use_debugger=True, use_reloader=True))
+#manager.add_command("runserver", Server(use_debugger=True, use_reloader=True))
 
 
 if __name__ == "__main__":
-    manager.run()
+    app.run(host="0.0.0.0")
+    #app.run()

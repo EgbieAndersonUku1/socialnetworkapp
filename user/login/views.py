@@ -36,7 +36,8 @@ def login():
 
                 Session.add(session_name="username", session_value=user.username.lower())
                 return redirect(url_for("home_app.home"))
-
+            else:
+                error = errors.INCORRECT_CREDENTIALS
     return render_template("users/login/login.html", error=error, form=form)
 
 

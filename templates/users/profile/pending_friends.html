@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "_relationship_button_helper.html" import rel_button, rel_js %}
-{% block title %}{{ user.username }} - Profile {% endblock %}
+{% block title %}{{ user.username }} - Friends Pending Request Page {% endblock %}
 
 {% include "navbar.html" %}
 
@@ -16,8 +16,8 @@
 
     <a href="#"><img class="img-thumbnail" src="{{ url_for('static', filename=user.profile_image_src(image_size)) }}" width="200" height="200" alt="{{ user.username }}"></a>
 
-    <h3 class="profile-fullname">{{ user.first_name }} {{ user.last_name }} </h3>
-    <h3 class="profile-username"><a href="{{ url_for('profile_app.profile', username=user.username) }}" />
+    <h2 class="profile-fullname">{{ user.first_name }} {{ user.last_name }} </h2>
+    <h2 class="profile-username"><a href="{{ url_for('profile_app.profile', username=user.username) }}" />
 
       {% if user.username %}
       @{{ user.username }}
@@ -25,7 +25,7 @@
       Profile image
       {% endif %}
 
-      </a></h3>
+      </a></h2>
 
   </div> <!-- col-md-3 -->
 
@@ -46,10 +46,10 @@
       <div class="col-md-12"> <!-- == Friend list == -->
 
         <div class="row">
-                <h1 class="pending-requests-friends">No Friend Pending requests</h1>
+                <h3> Pending requests</h3>
 
             {% if not pending.items %}
-                <div class="no-pending-requests">
+                <div id="no_pending_requests">
                      You have no pending friend requests
                 </div>
             {% else%}
@@ -64,7 +64,7 @@
               </div>
               <div class="friend-grid-user-data">
                 <h4 class="profile-fullname">{{ friend.from_user.first_name }} {{ friend.from_user.last_name }} </h5>
-                <h5 class="profile-username"><a href="{{ url_for('profile_app.profile', username=friend.to_user.username) }}">@{{ friend.from_user.username }}</a></h4>
+                <h4 class="profile-username"><a href="{{ url_for('profile_app.profile', username=friend.to_user.username) }}">@{{ friend.from_user.username }}</a></h4>
               </div>
               <div class="friend-grid-user-friends-button">
                   {% if relationship_type == None %}

@@ -1,5 +1,8 @@
 import yagmail
-from flask import current_app
+
+# To use the Email sender you must first turn on secure less app in gmail account
+_GMAIL_EMAIL = "ADD YOUR GMAIL EMAIL ADDRESS"
+_GMAIL_PASSWD = "ADD YOUR GMAIL PASSWORD HERE"
 
 
 class EmailSender(object):
@@ -10,10 +13,8 @@ class EmailSender(object):
         self._content = content
 
     def send(self):
+        """Allows the application to send emails to any account"""
 
-        yag = yagmail.SMTP("abbys348@gmail.com", "egbiereleuku14789")
+        yag = yagmail.SMTP(_GMAIL_EMAIL, _GMAIL_PASSWD)
         yag.send(to=self._recipient, subject=self._subject, contents=self._content)
 
-    def _is_app_in_test_mode(self):
-        if current_app.config.get("TESTING"):
-            return False
