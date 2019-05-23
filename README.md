@@ -48,6 +48,9 @@ $ go to the url field and type http://127.0.0.1:5000
 ### Todos
 
  - Complete the rest of doc string for my methods and functions
+ - Finish the edit function
+ - Write the ability to delete message
+ - Finish the rest of the tests.
 
 ### Running the program live
 To run the program live navigate to the https://absocialnetwork.com. The application uses https which is a secure encryption that scrambles data over the internet.
