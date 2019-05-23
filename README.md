@@ -1,7 +1,7 @@
 
 # Social network application
 
-This is social network application that I wrote because I needed to understand how facebook works. It allows the user to create a profile, login, edit their profile, adding profile images, add friends, block users, post or delete messages, change or reset passwords and much much more.
+This is a social network application that I wrote because I needed to understand how facebook works. It allows the user to create a profile, login, edit their profile, adding profile images, add friends, block users, post or delete messages, change or reset passwords and much much more.
 
 
 # How to use the application
