@@ -51,6 +51,7 @@ $ go to the url field and type http://127.0.0.1:5000
  - Finish the edit function
  - Write the ability to delete message
  - Finish the rest of the tests.
+ - Add a function so that you can see all users on the system
 
 ### Running the program live
 To run the program live navigate to the https://absocialnetwork.com. The application uses https which is a secure encryption that scrambles data over the internet.
