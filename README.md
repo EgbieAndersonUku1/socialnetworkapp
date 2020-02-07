@@ -11,7 +11,7 @@ This is a social network application that I wrote because I needed to understand
   - Sometimes for a hotmail account the confirmation message or any message send by the application might go to your junk mai. Check your junk mail if the message is not found in your regular email. The email address associated with the application will appear as socialbooknetworkapplication. Click the link or copy and paste to the url field
 
 # Finding a user in the application
-  - To find a user add the name of user first add a slash followed by the name to the end of the url  e.g. https://absocialnetwork.com/<username to find here> or http://127.0.0.1:5000/<username to find here> if you are running it on your local computer and click enter. Once entered click enter and you be taking the user profile page, you can then add them send a friend request if you want. 
+  - To find a user add the name of user first add a slash followed by the name to the end of the url  e.g. http://127.0.0.1:5000/<username to find here> if you are running it on your local computer and click enter. Once entered click enter and you be taking the user profile page, you can then add them send a friend request if you want. 
   
 # Accept a friend a request or deny
 To find all the people that have sent you a friend requests click the pending_friend tab. This will display all your pending friend requests
